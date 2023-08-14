@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Packages from "./Packages";
+import './Home.css'; // Import the CSS file for styling
 
 const Home = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
@@ -26,15 +28,15 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Welcome to Your Home Page</h1>
+    <div className="home-container">
+      <h1 id="welcome-heading">Welcome to Your Home Page</h1>
       {selectedPackage ? (
-        <div>
+        <div className="selected-package">
           <h2>
             You've selected: {selectedPackage.name} - KSH{" "}
             {selectedPackage.amount}
           </h2>
-          <input type="text" value={referralLink} readOnly />
+          <input type="text" value={referralLink} readOnly id="referral-link" />
           <button onClick={() => shareOnSocialMedia('facebook')}>Share on Facebook</button>
           <button onClick={() => shareOnSocialMedia('twitter')}>Share on Twitter</button>
           <button onClick={() => shareOnSocialMedia('linkedin')}>Share on LinkedIn</button>
